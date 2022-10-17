@@ -121,10 +121,10 @@ class Utilities:
                 body = driver.find_element(By.CSS_SELECTOR, "body")
                 for _ in range(randint(3, 5)):
                     body.send_keys(Keys.PAGE_DOWN)
-                WebDriverWait(driver, 30).until(EC.presence_of_element_located(
+                WebDriverWait(driver, 60).until(EC.presence_of_element_located(
                     (By.CSS_SELECTOR, '.userContentWrapper')))
             elif layout == "new":
-                WebDriverWait(driver, 30).until(
+                WebDriverWait(driver, 60).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, "[aria-posinset]")))
 
         except WebDriverException:
