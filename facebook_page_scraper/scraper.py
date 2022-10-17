@@ -79,10 +79,11 @@ class Facebook_scraper:
         self.__data_dict = {}  # this dictionary stores all post's data
         # call the __start_driver and override class member __driver to webdriver's instance
         self.__start_driver()
+        self.__drive.set_page_load_timeout(120)
         starting_time = time.time()
         # navigate to URL
         self.__driver.get(self.URL)
-
+ 
         self.__layout = Finder._Finder__detect_ui(self.__driver)
         # sometimes we get popup that says "your request couldn't be processed", however
         # posts are loading in background if popup is closed, so call this method in case if it pops up.
